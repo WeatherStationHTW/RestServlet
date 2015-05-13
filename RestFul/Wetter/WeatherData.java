@@ -2,7 +2,9 @@ import java.time.LocalTime;
 
 
 public class WeatherData {
-	
+	//================================================================================
+    // Properties
+    //================================================================================
 	private String stationid;
 	private Double stationlong;
 	private Double stationlat;
@@ -12,9 +14,73 @@ public class WeatherData {
 	private Double value;
 	private String unit;
 	
-
+	//================================================================================
+    // Accessors
+    //================================================================================
+	
+	public void setStationid(String id){
+		this.stationid = id;
+	}
+	public String getStationid(){
+		return this.stationid;
+	}
+	public void setStationlong(Double lng){
+		this.stationlong = lng;
+	}
+	public Double getStationlong(){
+		return this.stationlong;
+	}
+	public void setStationLat(Double lat){
+		this.stationlat = lat;
+	}
+	public Double getStationLat(){
+		return this.stationlat;
+	}
+	public void setSensorid(Integer id){
+		this.sensorid = id;
+	}
+	public Integer getSensorid(){
+		return this.sensorid;
+	}
+	public void setSensortype(String type){
+		this.sensortype = type;
+	}
+	public String getSensortype(){
+		return this.sensortype;
+	}
+	public void setTimestamp(LocalTime acttime){
+		this.timestamp = acttime;
+	}
+	public LocalTime getTimestamp(){
+		return this.timestamp;
+	}
+	public void setValue(Double val){
+		this.value = val;
+	}
+	public Double getValue(){
+		return this.value;
+	}
+	public void setUnit(String uunit){
+		this.unit = uunit;
+	}
+	public String getUnit(){
+		return this.unit;
+	}
+	
+	//================================================================================
+    // Constructors
+    //================================================================================
 	public WeatherData() {
-		// TODO Auto-generated constructor stub
+	}
+	public WeatherData(String id, Double lng, Double lat, Integer sid, String type, LocalTime acttime, Double val, String uunit){
+		this.stationid = id;
+		this.stationlong = lng;
+		this.stationlat = lat;
+		this.sensorid = sid;
+		this.sensortype = type;
+		this.timestamp = acttime;
+		this.value = val;
+		this.unit = uunit;
 	}
 
 }

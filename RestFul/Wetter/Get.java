@@ -7,28 +7,26 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
+import org.junit.Test;
 
-@Path("/HalloWelt")
-//Dann unter http://localhost:8080/RestFul/Wetter/HalloWelt erreichbar
+
+@Path("/PushData")
+//Dann unter http://localhost:8080/RestFul/Wetter/PushData erreichbar
 
 
 public class Get {
-	static private String name = " John Doe";
-	 @GET
-	 @Produces(MediaType.TEXT_HTML)
-	  public String sayHtmlHello() {
-	    return "<html> " + "<title>" + "Hello Jersey" + "</title>"
-	        + "<body><h1>" + "Hello" + name + "</body></h1>" + "</html> ";
-	  }
+	
+	
+	 
 	 @POST
-	 //@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	  public Response getUsername(){
+	 @Consumes(MediaType.APPLICATION_JSON)
+	  public Response getData(WeatherData entity){
+		
+		String output = entity.getStationid(); 
 		 
-		 name = "KlausMeter";
-		 
-	  Response response = Response.status(200).build();
+	  Response response = Response.status(200).entity(output).build();
 	  
-	  System.out.println(name);
+	  
 	  return response;
 	 }
 	 
