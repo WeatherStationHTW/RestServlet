@@ -10,7 +10,7 @@ public class dbconn {
 		static ResultSet rs = null; 
 		
 		//Methode zum Schreiben in die Datenbank
-		public String SetDBrecord(WeatherData record)
+		public static String SetDBrecord(WeatherData record)
 		{
 			String result = "OK";
 			try

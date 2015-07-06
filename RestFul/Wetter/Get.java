@@ -18,17 +18,14 @@ public class Get {
 	
 	
 	 
-	 @POST
+	 @GET
 	 @Consumes(MediaType.APPLICATION_JSON)
 	  public Response getData(WeatherData entity){
-		WeatherData test = new WeatherData();
-		test.
-		String output = entity.getStationid(); 
-		 
-	  Response response = Response.status(200).entity(output).build();
-	  
-	  
-	  return response;
+		
+		
+		 String output = dbconn.SetDBrecord(entity);
+		 Response response = Response.status(200).entity(output).build();
+		 return response;
 	 }
 	 
 }
