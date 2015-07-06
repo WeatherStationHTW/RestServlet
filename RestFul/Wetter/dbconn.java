@@ -5,22 +5,22 @@ public class dbconn {
 
 
 	
-		static Connection con = null;
-		static Statement stat = null;
-		static ResultSet rs = null; 
+		
 		
 		//Methode zum Schreiben in die Datenbank
-		public static String SetDBrecord(WeatherData record)
+		public static String SetDBrecord(WeatherData record) throws ClassNotFoundException
 		{
+			Connection con = null;
+			Statement stat = null;
+			
 			String result = "OK";
 			try
 			{
-				
-				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Wetterstation1", "root", "");
+				Class.forName("com.mysql.jdbc.Driver");
+				con = DriverManager.getConnection("jdbc:mysql://localhost:3306/Wetterstation", "root", "");
 			    stat = con.createStatement();
-				rs = null;
-				stat.execute("INSERT INTO `Wetterstation`.`WeatherData` (`stationid`, `stationlong`, `stationlat`, `sensorid`, `sensortype`, `timestamp`, `value`, `unit`)"
-															  + "VALUES (record.getSensorid(),record.getSensortype(),record.getStationid(),record.getStationLat(),record.getStationlong(),record.getTimestamp(),record.getUnit(),record.getValue())");
+				
+				stat.execute("INSERT INTO Wetterstation.WeatherData VALUES (NULL,'"+record.getStationid()+"',"+record.getStationlong()+","+record.getStationLat()+","+record.getSensorid()+",'"+record.getSensortype()+"','"+record.getTimestamp()+"',"+record.getValue()+",'"+record.getUnit()+"')");
 				return result;
 			}
 			

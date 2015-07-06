@@ -6,12 +6,12 @@ public class WeatherData {
     // Properties
     //================================================================================
 	private String stationid;
-	private Double stationlong;
-	private Double stationlat;
-	private Integer sensorid;
+	private double stationlong;
+	private double stationlat;
+	private int sensorid;
 	private String sensortype;
-	private LocalTime timestamp;
-	private Double value;
+	private String timestamp;
+	private double value;
 	private String unit;
 	
 	//================================================================================
@@ -48,10 +48,10 @@ public class WeatherData {
 	public String getSensortype(){
 		return this.sensortype;
 	}
-	public void setTimestamp(LocalTime acttime){
+	public void setTimestamp(String acttime){
 		this.timestamp = acttime;
 	}
-	public LocalTime getTimestamp(){
+	public String getTimestamp(){
 		return this.timestamp;
 	}
 	public void setValue(Double val){
@@ -72,7 +72,7 @@ public class WeatherData {
     //================================================================================
 	public WeatherData() {
 	}
-	public WeatherData(String id, Double lng, Double lat, Integer sid, String type, LocalTime acttime, Double val, String uunit){
+	public WeatherData(String id, Double lng, Double lat, Integer sid, String type, String acttime, Double val, String uunit){
 		this.stationid = id;
 		this.stationlong = lng;
 		this.stationlat = lat;

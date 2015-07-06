@@ -7,7 +7,9 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.junit.Test;
+import com.google.gson.Gson;
+
+
 
 
 @Path("/PushData")
@@ -17,13 +19,21 @@ import org.junit.Test;
 public class Get {
 	
 	
-	 
-	 @GET
+	 private Gson gson;
+	 @POST
 	 @Consumes(MediaType.APPLICATION_JSON)
-	  public Response getData(WeatherData entity){
+	  public Response getData(String entity){
 		
-		
-		 String output = dbconn.SetDBrecord(entity);
+		 gson = new Gson();
+		 System.out.println("blahBlah" + entity);
+		 WeatherData wd = gson.fromJson(entity, WeatherData.class);
+		 String output="";
+		try {
+			output = dbconn.SetDBrecord(wd);
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		 Response response = Response.status(200).entity(output).build();
 		 return response;
 	 }
