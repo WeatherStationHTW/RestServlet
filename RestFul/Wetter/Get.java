@@ -21,7 +21,8 @@ public class Get {
 	 @POST
 	 @Consumes(MediaType.APPLICATION_JSON)
 	  public Response getData(WeatherData entity){
-		
+		WeatherData test = new WeatherData();
+		test.
 		String output = entity.getStationid(); 
 		 
 	  Response response = Response.status(200).entity(output).build();
