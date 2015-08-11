@@ -9,15 +9,10 @@ import javax.ws.rs.core.Response;
 
 import com.google.gson.Gson;
 
-
-
-
 @Path("/PushData")
 //Dann unter http://localhost:8080/RestFul/Wetter/PushData erreichbar
 
-
 public class Get {
-	
 	
 	 private Gson gson;
 	 @POST
@@ -25,13 +20,14 @@ public class Get {
 	  public Response getData(String entity){
 		
 		 gson = new Gson();
-		 System.out.println("blahBlah" + entity);
 		 WeatherData wd = gson.fromJson(entity, WeatherData.class);
 		 String output="";
-		try {
+		try 
+		{
 			output = dbconn.SetDBrecord(wd);
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
+		} 
+		catch (ClassNotFoundException e) 
+		{
 			e.printStackTrace();
 		}
 		 Response response = Response.status(200).entity(output).build();

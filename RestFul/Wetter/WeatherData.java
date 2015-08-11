@@ -8,7 +8,7 @@ public class WeatherData {
 	private String stationid;
 	private double stationlong;
 	private double stationlat;
-	private int sensorid;
+	private String sensorid;
 	private String sensortype;
 	private String timestamp;
 	private double value;
@@ -36,10 +36,10 @@ public class WeatherData {
 	public Double getStationLat(){
 		return this.stationlat;
 	}
-	public void setSensorid(Integer id){
+	public void setSensorid(String id){
 		this.sensorid = id;
 	}
-	public Integer getSensorid(){
+	public String getSensorid(){
 		return this.sensorid;
 	}
 	public void setSensortype(String type){
@@ -72,7 +72,7 @@ public class WeatherData {
     //================================================================================
 	public WeatherData() {
 	}
-	public WeatherData(String id, Double lng, Double lat, Integer sid, String type, String acttime, Double val, String uunit){
+	public WeatherData(String id, Double lng, Double lat, String sid, String type, String acttime, Double val, String uunit){
 		this.stationid = id;
 		this.stationlong = lng;
 		this.stationlat = lat;
